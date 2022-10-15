@@ -27,4 +27,27 @@ def bhatt_distance(a,b):
 def corr_function(a,b):
     pass
 
+# function for dice distance
+def dice_distance(a,b):
+    a_sq = 0
+    b_sq = 0
+    ab_sq = 0
+    for i in range(len(a)):
+        a_sq += a[i]*a[i]
+        b_sq += b[i]*b[i]
+        ab_sq += (a[i]-b[i])**2
+    dist = ab_sq/(ab_sq+b_sq)
+    return dist
+
+# function for gower distance
+def gower_distance(a,b):
+    dist = 0
+    for i in range(len(a)):
+        dist += abs(a[i]-b[i])
+    dist /= len(b)
+    return dist
+
+
 print(averagel1_linf(t1,t2))
+print(dice_distance(t1,t2))
+print(gower_distance(t1, t2))
